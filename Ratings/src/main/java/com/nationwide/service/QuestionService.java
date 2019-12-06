@@ -1,5 +1,6 @@
 package com.nationwide.service;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,10 @@ public class QuestionService {
 	@Autowired
 	private QuestionRepo qRepo;
 	
+	public List<QuestionEntity> showAllQuestionRatings() {
+		return qRepo.findAll();
+	}
+	
 	public Optional<QuestionEntity> findQuestionRating(Integer q_id) {
 		return qRepo.findById(q_id);
 	}
@@ -20,5 +25,7 @@ public class QuestionService {
 		qRepo.save(ref);
 		
 	}
-	
+	public int totalQuestionRating() { 
+		return qRepo.totalQRatings();
+	}
 }
