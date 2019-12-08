@@ -38,6 +38,12 @@ public class QuestionController {
 	}
 	
 	@CrossOrigin
+	@GetMapping("/TotalRatings/{id}")
+	public int totalQRatingsByQId(@PathVariable int id) {
+		return qService.totalQuestionRatingsByQuestionId(id);
+	}
+	
+	@CrossOrigin
 	@PutMapping("/EditQuestionRating")
 	public String editQRating(@RequestBody QuestionEntity ref) {
 		qService.editQuestionRating(ref);
