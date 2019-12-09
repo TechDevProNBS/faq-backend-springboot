@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import com.nationwide.Entity.AnswerEntity;
 
@@ -16,4 +17,7 @@ public interface AnswerRepo extends JpaRepository<AnswerEntity, Integer> {
 	
 	@Query(value = "SELECT SUM(a.rating) FROM AnswerEntity a")
 	int totalARatings();
+	
+	@Query(value = "SELECT SUM(a.rating) FROM AnswerEntity a WHERE a.a_id = :aId")
+	int totalARatingsByAId(@Param("aId") int answerId);
 }

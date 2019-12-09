@@ -28,4 +28,8 @@ public class QuestionService {
 	public int totalQuestionRating() { 
 		return qRepo.totalQRatings();
 	}
+	
+	public int totalQuestionRatingsByQuestionId(int q_id) {
+		return qRepo.totalQRatingsByQId(q_id);
+	}
 }

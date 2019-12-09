@@ -17,7 +17,6 @@ public class AnswerService {
 	
 	public Optional<AnswerEntity> findAnswerRating(Integer a_id){
 		return aRepo.findById(a_id);
-		
 	}
 
 	public void editAnswerRating(AnswerEntity ref) {
@@ -26,4 +25,9 @@ public class AnswerService {
 	public int totalAnswerRating() { 
 		return aRepo.totalARatings();
 	}
+	
+	public int totalAnswerRatingsByAnswerId(int a_id) {
+		return aRepo.totalARatingsByAId(a_id);
+	}
+	
 }
