@@ -26,6 +26,8 @@ pipeline {
         }
         stage('FAQs project deployed') {
             steps {
+                    chmod +x DockerRun.sh
+                    sh ./DockerRun.sh
                 echo "Project Deployed"
             }
         }
