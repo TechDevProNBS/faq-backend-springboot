@@ -1,5 +1,5 @@
 FROM java:openjdk-8-jdk
 
-COPY ./target/Ratings.jar /
+COPY ./target/Ratings.jar /usr/app
 
-ENTRYPOINT ["java","-jar","Ratings.jar"]
+ENTRYPOINT ["java","-jar","/usr/app/Ratings.jar"]
