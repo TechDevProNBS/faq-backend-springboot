@@ -39,6 +39,12 @@ public class AnswerController {
 	}
 	
 	@CrossOrigin
+	@GetMapping("/TotalRatings/{id}")
+	public int totalARatingsByAId(@PathVariable int id) {
+		return aService.totalAnswerRatingsByAnswerId(id);
+	}
+	
+	@CrossOrigin
 	@PutMapping("/EditAnswerRating")
 	public String editARating(@RequestBody AnswerEntity ref) {
 		aService.editAnswerRating(ref);
