@@ -1,5 +1,6 @@
 package com.nationwide.service;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,6 +11,10 @@ import com.nationwide.repository.AnswerRepo;
 public class AnswerService {
 	@Autowired AnswerRepo aRepo;
 	
+	public List<AnswerEntity> showAllAnswerRatings() {
+		return aRepo.findAll();
+	}
+	
 	public Optional<AnswerEntity> findAnswerRating(Integer a_id){
 		return aRepo.findById(a_id);
 		
@@ -17,5 +22,8 @@ public class AnswerService {
 
 	public void editAnswerRating(AnswerEntity ref) {
 		aRepo.save(ref);
+	}
+	public int totalAnswerRating() { 
+		return aRepo.totalARatings();
 	}
 }

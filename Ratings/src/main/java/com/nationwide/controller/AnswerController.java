@@ -1,5 +1,6 @@
 package com.nationwide.controller;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,14 +20,23 @@ public class AnswerController {
 	private AnswerService aService;
 	
 	@CrossOrigin
+	@GetMapping("/ShowAll")
+	public List<AnswerEntity> showAllARatings(){
+		return aService.showAllAnswerRatings();
+	}
+	
+	@CrossOrigin
 	@GetMapping("/AnswerRating/{id}")
 	public Optional<AnswerEntity> findARating(@PathVariable Integer id) {
 		return aService.findAnswerRating(id);
 	}
 	
-	//Get Mapping for total question ratings count
-	
-	//Get Mapping for total answer ratings count
+	@CrossOrigin
+	@GetMapping("/TotalRatings")
+	public int totalARatings() {
+		return aService.totalAnswerRating();
+		
+	}
 	
 	@CrossOrigin
 	@PutMapping("/EditAnswerRating")

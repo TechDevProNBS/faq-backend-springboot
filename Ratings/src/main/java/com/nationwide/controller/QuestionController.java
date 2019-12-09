@@ -1,5 +1,6 @@
 package com.nationwide.controller;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -19,9 +20,21 @@ public class QuestionController {
 	private QuestionService qService;
 	
 	@CrossOrigin
+	@GetMapping("/ShowAll")
+	public List<QuestionEntity> showAllQRatings(){
+		return qService.showAllQuestionRatings();
+	}
+	
+	@CrossOrigin
 	@GetMapping("/QuestionRating/{id}")
 	public Optional<QuestionEntity> findQRating(@PathVariable Integer id) {
 		return qService.findQuestionRating(id);
+	}
+	
+	@CrossOrigin
+	@GetMapping("/TotalRatings")
+	public int totalQRatings() {
+		return qService.totalQuestionRating();
 	}
 	
 	@CrossOrigin

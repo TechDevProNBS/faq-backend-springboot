@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class QuestionEntity {
 
 	@Id
-	private Integer q_id;
+	private int q_id;
 	
 	private int u_id;
 	
@@ -18,11 +18,11 @@ public class QuestionEntity {
 	
 	private Timestamp postdate_AR;
 
-	public Integer getQ_id() {
+	public int getQ_id() {
 		return q_id;
 	}
 
-	public void setQ_id(Integer q_id) {
+	public void setQ_id(int q_id) {
 		this.q_id = q_id;
 	}
 

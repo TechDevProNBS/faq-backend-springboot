@@ -1,11 +1,19 @@
 package com.nationwide.repository;
 
+import java.util.List;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import com.nationwide.Entity.AnswerEntity;
 
 @Repository
 public interface AnswerRepo extends JpaRepository<AnswerEntity, Integer> {
+	
+	public List<AnswerEntity> findAll();
+	
 	public Optional<AnswerEntity> findById(int a_id);
+	
+	@Query(value = "SELECT SUM(a.rating) FROM AnswerEntity a")
+	int totalARatings();
 }

@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Table(name = "answerrating")
 public class AnswerEntity {
 	@Id
-	private Integer a_id;
+	private int a_id;
 	
 	private int u_id;
 	
@@ -17,11 +17,11 @@ public class AnswerEntity {
 	
 	private Timestamp postdate_AR;
 
-	public Integer getA_id() {
+	public int getA_id() {
 		return a_id;
 	}
 
-	public void setA_id(Integer a_id) {
+	public void setA_id(int a_id) {
 		this.a_id = a_id;
 	}
 
@@ -48,5 +48,4 @@ public class AnswerEntity {
 	public void setPostdate_AR(Timestamp postdate_AR) {
 		this.postdate_AR = postdate_AR;
 	}
-	
 }
