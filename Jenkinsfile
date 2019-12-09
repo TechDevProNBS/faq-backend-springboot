@@ -27,7 +27,7 @@ pipeline {
         stage('FAQs project deployed') {
             steps {
                     sh 'chmod +x DockerRun.sh'
-                    sh './DockerRun.sh'
+                    sh "ssh jenkins@104.198.153.5 'bash -s' < ./DockerRun.sh"
                 echo "Project Deployed"
             }
         }
