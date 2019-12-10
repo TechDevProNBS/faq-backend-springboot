@@ -2,38 +2,38 @@ pipeline {
     agent any
 
     stages {
-        stage('Testing FAQS project') {
+        stage('Testing FAQS Springboot Backend') {
             steps {
 		    echo "Testing a project"
             }
         }
-        stage('Building FAQs project') {
+        stage('Building FAQS Springboot Backend') {
             steps {
                     sh 'mvn package -DskipTests'
-		    sh 'docker build -t="rakimsv/ratings:latest" .'
+		    sh 'docker build -t="rakimsv/faqs-springboot-backend:latest" .'
             }
         }
-        stage('Staging FAQs project') {
+        stage('Staging FAQS Springboot Backend') {
             steps {
                    echo "Staging"
             }
         }
-        stage('Deploying FAQs project') {
+        stage('Deploying FAQS Springboot Backend') {
             steps {
-		   sh 'docker push "rakimsv/ratings:latest"'
+		   sh 'docker push "rakimsv/faqs-springboot-backend:latest"'
                    echo "Deploy"
             }
         }
-        stage('FAQs project deployed') {
+        stage('FAQS Springboot Backend deployed') {
             steps {
                     sh 'chmod +x DockerRun.sh'
                     sh "ssh jenkins@104.198.153.5 'bash -s' < ./DockerRun.sh"
                 echo "Project Deployed"
             }
         }
-        stage('Running FAQS project') {
+        stage('Running FAQS Springboot Backend') {
             steps {
-                sh 'docker run "rakimsv/ratings:latest"'
+                sh 'docker run "rakimsv/faqs-springboot-backend:latest"'
                 echo "Project Running"
             }
         }

@@ -4,4 +4,4 @@ docker container prune -a yes
 
 docker rmi $(docker images -q) --force
 
-docker run -d -p 8071:80 rakimsv/proper-project:latest
+docker run -d -p 8071:80 rakimsv/faqs-springboot-backend:latest
