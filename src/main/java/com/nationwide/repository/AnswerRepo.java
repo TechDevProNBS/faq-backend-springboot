@@ -20,4 +20,7 @@ public interface AnswerRepo extends JpaRepository<AnswerEntity, Integer> {
 	
 	@Query(value = "SELECT SUM(a.rating) FROM AnswerEntity a WHERE a.a_id = :aId")
 	int totalARatingsByAId(@Param("aId") int answerId);
+	
+	@Query(value = "SELECT a FROM AnswerEntity a WHERE a.a_id IN (:aId)")
+	List <Integer> totalARatingsByAIdArray(@Param("aId") int[] answerId);
 }

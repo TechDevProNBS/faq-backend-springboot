@@ -30,4 +30,8 @@ public class AnswerService {
 		return aRepo.totalARatingsByAId(a_id);
 	}
 	
+	public List<Integer> totalAnswerRatingsByAnswerIdArray(int[] a_id) {
+		return aRepo.totalARatingsByAIdArray(a_id);
+	}
+	
 }
