@@ -14,8 +14,6 @@ public class AnswerEntity {
 	private int u_id;
 	
 	private int rating;
-	
-	private Timestamp postdate_AR;
 
 	public int getA_id() {
 		return a_id;
@@ -39,13 +37,5 @@ public class AnswerEntity {
 
 	public void setRating(int rating) {
 		this.rating = rating;
-	}
-
-	public Timestamp getPostdate_AR() {
-		return postdate_AR;
-	}
-
-	public void setPostdate_AR(Timestamp postdate_AR) {
-		this.postdate_AR = postdate_AR;
 	}
 }

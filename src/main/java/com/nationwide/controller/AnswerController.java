@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.nationwide.Entity.AnswerEntity;
 import com.nationwide.service.AnswerService;
@@ -35,13 +36,18 @@ public class AnswerController {
 	@GetMapping("/TotalRatings")
 	public int totalARatings() {
 		return aService.totalAnswerRating();
-		
 	}
 	
 	@CrossOrigin
 	@GetMapping("/TotalRatings/{id}")
 	public int totalARatingsByAId(@PathVariable int id) {
 		return aService.totalAnswerRatingsByAnswerId(id);
+	}
+	
+	@CrossOrigin
+	@GetMapping("/TotalRatingsArray/{ids}")
+	public List<Integer> totalARatingsByAIdArray(@RequestParam("a_id") int[] ids) {
+		return aService.totalAnswerRatingsByAnswerIdArray(ids);
 	}
 	
 	@CrossOrigin
